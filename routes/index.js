@@ -7,7 +7,17 @@ var db = require('../database');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  db.query('SHOW databases;', function(err, rows, fields) {
+    if (err) throw err;
+
+    var result = _.map(rows, function(row) {
+      return {database: row.Database};
+    });
+
+    res.render('index', {
+      appData: JSON.stringify(result)
+    });
+  });
 });
 
 
