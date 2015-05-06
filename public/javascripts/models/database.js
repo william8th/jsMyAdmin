@@ -1,10 +1,12 @@
-define(['backbone', 'collections/table'], function(Backbone, TableCollection) {
+define(['backbone', 'underscore', 'collections/schemaCollection'], 
+  function(Backbone, _, SchemaCollection) {
   return Backbone.Model.extend({
     initialize: function() {
-      this.tableCollection = new TableCollection();
-      this.tableCollection.id = this.id;
-      this.tableCollection.url = '/database/' + this.id;
-      this.tableCollection.fetch({ reset: true });
+      this.schemaCollection = new SchemaCollection();
+      this.schemaCollection.id = this.id;
+      this.schemaCollection.url = '/database/' + this.id;
+      this.schemaCollection.fetch({ reset:true });
+
     },
     idAttribute: 'database',
   });

@@ -1,9 +1,10 @@
-define(['backbone', 'handlebars', 'jquery', 'events'], function(Backbone, Handlebars, $, Events) {
+define(['backbone', 'handlebars', 'jquery', 'events'], 
+  function(Backbone, Handlebars, $, Events) {
   var DatabaseView = Backbone.View.extend({
     events: {
       'click .dbname': 'databaseView'
     },
-    tagName: 'li',
+    tagName: 'div',
     className: 'database',
     render: function() {
       var template = $('#databaseCollectionView').html();
@@ -17,7 +18,6 @@ define(['backbone', 'handlebars', 'jquery', 'events'], function(Backbone, Handle
       var dbname = this.model.get('database');
       var url = 'database/' + dbname;
       Events.trigger('router:navigate', url);
-      // router.navigate('database/' + dbname, {trigger: true});
     }
   });
 

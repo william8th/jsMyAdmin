@@ -60,7 +60,7 @@ router.get('/database/:dbname', function(req, res, next) {
 
     var indexName = 'Tables_in_' + dbName;
     var result = _.map(rows, function(tableName) {
-      return {table: tableName[indexName]};
+      return {database: dbName, scheme: tableName[indexName]};
     });
 
     res.json(result);
