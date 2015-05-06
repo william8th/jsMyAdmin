@@ -3,14 +3,14 @@ extends layout
 block content
   h1= 'SQLAdmin.js'
 
-  div#initialData
+  div#initialData(style="display:none")
     = appData
 
-  div.app  
+  div.app 
 
   script(id='databaseCollectionView', type='text/x-handlebars').
     <a href='#' class='dbname'>{{database}}</a>
   
   script(id='tableCollectionView', type='text/x-handlebars').
-    <h2>{{table}}</h2>
+    <a href='#' class='tableName'>{{table}}</a>
      
